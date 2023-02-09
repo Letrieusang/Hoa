@@ -1,0 +1,61 @@
+definitions:
+  Model.AdviseRequest:
+    properties:
+      content:
+        type: string
+      name:
+        type: string
+    type: object
+  common.Response:
+    properties:
+      data: {}
+      hasError:
+        type: integer
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /content/advise:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: add advise
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/Model.AdviseRequest'
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: add advise
+      tags:
+      - content
+swagger: "2.0"
