@@ -25,8 +25,6 @@ func DbConnect() *gorm.DB {
 // @Param user body Model.AdviseRequest true "add advise"
 // @Accept json
 // @Produce json
-// @Param page query int false "page"
-// @Param limit query int false "limit"
 // @Success 200 {object}{object} common.Response{data=map[int64]string}
 // @Failure 400,401,500 {object} common.Response
 // @Router /content/advise [post]
@@ -46,6 +44,15 @@ func AddAdvise() func(c *gin.Context) {
 	}
 }
 
+// AddConfess event godoc
+// @Summary add advise
+// @Tags content
+// @Param user body Model.ConfessionRequest true "add advise"
+// @Accept json
+// @Produce json
+// @Success 200 {object}{object} common.Response{data=map[int64]string}
+// @Failure 400,401,500 {object} common.Response
+// @Router /content/advise [post]
 func AddConfess() func(c *gin.Context) {
 	return func(c *gin.Context) {
 		db := DbConnect()

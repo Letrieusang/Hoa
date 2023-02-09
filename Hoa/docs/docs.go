@@ -34,20 +34,8 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Model.AdviseRequest"
+                            "$ref": "#/definitions/Model.ConfessionRequest"
                         }
-                    },
-                    {
-                        "type": "integer",
-                        "description": "page",
-                        "name": "page",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "description": "limit",
-                        "name": "limit",
-                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -83,6 +71,20 @@ const docTemplate = `{
         "Model.AdviseRequest": {
             "type": "object",
             "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Model.ConfessionRequest": {
+            "type": "object",
+            "properties": {
+                "contact": {
+                    "type": "string"
+                },
                 "content": {
                     "type": "string"
                 },

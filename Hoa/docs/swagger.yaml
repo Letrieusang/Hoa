@@ -6,6 +6,15 @@ definitions:
       name:
         type: string
     type: object
+  Model.ConfessionRequest:
+    properties:
+      contact:
+        type: string
+      content:
+        type: string
+      name:
+        type: string
+    type: object
   common.Response:
     properties:
       data: {}
@@ -27,15 +36,7 @@ paths:
         name: user
         required: true
         schema:
-          $ref: '#/definitions/Model.AdviseRequest'
-      - description: page
-        in: query
-        name: page
-        type: integer
-      - description: limit
-        in: query
-        name: limit
-        type: integer
+          $ref: '#/definitions/Model.ConfessionRequest'
       produces:
       - application/json
       responses:
